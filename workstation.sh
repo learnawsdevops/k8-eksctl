@@ -56,9 +56,11 @@ VALIDATE $? "added centos user to docker group"
 echo -e "$R Logout and login again $N"
 
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-
 chmod +x kubectl
-
-mv ./kubectl ~/.local/bin/kubectl
-
+mkdir -p ~/.local/bin
+mv kubectl ~/.local/bin/kubectl
+chmod +x ~/.local/bin/kubectl
+echo 'export PATH=$PATH:$HOME/.local/bin' >> ~/.bashrc
+source ~/.bashrc
 echo -e "$G Kubectl installation successful"
+
