@@ -27,3 +27,13 @@ eksctl create cluster --config-file=eks.yaml
    21  07/04/25 16:25:57 eksctl create cluster --config-file=eks.yaml
    22  07/04/25 16:39:21 kubectl get nodes
    23  07/04/25 16:40:20 history
+
+
+Installation of eksctl 
+
+tar -xvzf  eksctl_Linux_amd64.tar.gz -C ~
+mkdir -p ~/.local/bin
+mv ~/eksctl ~/.local/bin/
+chmod +x ~/.local/bin/eksctl
+echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.bashrc
+source ~/.bashrc
