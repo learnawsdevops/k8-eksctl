@@ -37,3 +37,6 @@ mv ~/eksctl ~/.local/bin/
 chmod +x ~/.local/bin/eksctl
 echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.bashrc
 source ~/.bashrc
+
+
+eksctl delete cluster --name roboshop-new --region us-east-1
