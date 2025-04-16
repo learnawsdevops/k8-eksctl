@@ -55,13 +55,13 @@ usermod -aG docker centos
 VALIDATE $? "added centos user to docker group"
 echo -e "$R Logout and login again $N"
 
+# Download the latest version of kubectl
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+# Make it executable
 chmod +x kubectl
-mkdir -p ~/.local/bin
-mv kubectl ~/.local/bin/kubectl
-chmod +x ~/.local/bin/kubectl
-echo 'export PATH=$PATH:$HOME/.local/bin' >> ~/.bashrc
-source ~/.bashrc
+# Move it to /usr/bin (requires sudo)
+sudo mv kubectl /usr/local/bin/kubectl
+
 echo -e "$G Kubectl installation successful"
 
 git clone https://github.com/ahmetb/kubectx /opt/kubectx
