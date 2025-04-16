@@ -1,10 +1,10 @@
 resource "aws_instance" "workstation"{
     ami = data.aws_ami.rhel9_devops.id
-    instance_type = "t2.micro"
+    instance_type = "t3.medium"
     vpc_security_group_ids = [ aws_security_group.allow-workstation.id]
     user_data = file("workstation.sh")
     root_block_device {
-    volume_size = 20  # Set the EBS volume size to 30GB
+    volume_size = 30  # Set the EBS volume size to 30GB
     volume_type = "gp3"  # (Optional) Choose volume type (gp2, gp3, io1, etc.)
     }
     tags ={

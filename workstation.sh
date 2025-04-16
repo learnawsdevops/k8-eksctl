@@ -50,7 +50,7 @@ systemctl enable docker
 
 VALIDATE $? "Enabled docker"
 
-usermod -aG docker centos
+usermod -aG docker ec2-user
 
 VALIDATE $? "added centos user to docker group"
 echo -e "$R Logout and login again $N"
